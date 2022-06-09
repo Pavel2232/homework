@@ -9,10 +9,10 @@ def loud_list() -> list[dict]:
         return json.load(f)
 
 
-def format_candidates(candidat) -> str:
+def list_candidates(list) -> str:
     """Форматирование списка кандидатов"""
     result = "<pre>\n"
-    for candidat in candidat:
+    for candidat in list:
         result += f'''  {candidat["name"]}\n
   {candidat["position"]}\n
   {candidat["skills"]}\n
@@ -23,17 +23,17 @@ def format_candidates(candidat) -> str:
 
 def get_candidat(uid: int) -> dict:
     """Поиск кандидата по id"""
-    candidats = loud_list()
-    for candidat in candidats:
+    list_candidats = loud_list()
+    for candidat in list_candidats:
         if candidat["id"] == uid:
             return candidat
 
 
 def get_candidat_skill(skill: str) -> list[dict]:
     """Поиск кандидата по skill"""
-    candidats = loud_list()
+    list_candidats= loud_list()
     result = []
-    for candidat in candidats:
+    for candidat in list_candidats:
         if skill in candidat["skills"].lower().split(', '):
             result.append(candidat)
     return result
