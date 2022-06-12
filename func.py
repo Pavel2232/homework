@@ -37,3 +37,12 @@ def get_candidat_skill(skill: str) -> list[dict]:
         if skill in candidat["skills"].lower().split(', '):
             result.append(candidat)
     return result
+
+def get_candidates_by_name(candidate_name)-> list[dict]:
+    """Возвращает кандидата по имени"""
+    list_candidates = loud_list()
+    result = []
+    for candidat in list_candidates:
+        if candidate_name.upper().lower().title() in candidat["name"]:
+            result.append(candidat)
+    return result
